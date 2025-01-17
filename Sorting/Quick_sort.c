@@ -7,7 +7,6 @@ void swap(int *x,int *y){
     *y = temp;
 }
 
-
 int partition(int a[], int lb, int ub){
     int pivot,start,end;
     pivot = a[lb];
@@ -59,5 +58,6 @@ int main(){
     printf("\n The array after applying quick sort ----\n");
     quick_sort(a,0,n-1);
     display(a,n);
+
     return 0;
 }
