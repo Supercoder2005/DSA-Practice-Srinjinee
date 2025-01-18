@@ -36,6 +36,15 @@ void deletion_at_beginning(){
     free(temp);
 }
 
+void deletion_at_end(){
+    temp = head;
+    while(temp->next != NULL){
+        temp = temp->next;
+    }
+    temp->prev->next = NULL;
+    free(temp);
+}
+
 void display(){
     temp = head;
     while(temp!= NULL){
@@ -64,6 +73,9 @@ int main(){
                 break;
             case 3:
                 deletion_at_beginning();
+                break;
+            case 4:
+                deletion_at_end();
                 break;
             case 6:
                 exit(0);
