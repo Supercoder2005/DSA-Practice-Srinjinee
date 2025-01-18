@@ -29,7 +29,7 @@ struct node *insertNode(struct node *root,int data){
     return root;
 }
 
-void inorderTraversal(){
+void inorderTraversal(struct node *root){
     if(root != NULL){
         inorderTraversal(root->left);
         printf("\t%d",root->data);
