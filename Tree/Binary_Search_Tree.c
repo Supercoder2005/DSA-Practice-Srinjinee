@@ -13,7 +13,7 @@ struct node *createNode(int data){
     newnode->data = data;
     newnode->left = NULL;
     newnode->right = NULL;
-    return root;
+    return newnode;
 }
 
 struct node *insertNode(struct node *root,int data){
