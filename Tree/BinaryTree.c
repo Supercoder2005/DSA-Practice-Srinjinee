@@ -30,30 +30,27 @@ struct node *insertNode(struct node *root,int data){
 }
 
 void inorderTraversal(struct node *root){
-    if(root == NULL){
-        return 0;
+    if(root != NULL){
+        inordertraversal(root->left);
+        printf("\t%d",root->data);
+        inorderTraversal(root->right);
     }
-    inordertraversal(root->left);
-    printf("\t%d",root->data);
-    inorderTraversal(root->right);
 }
 
 void preorderTraversal(struct node *root){
-    if(root == NULL){
-        return 0;
+    if(root != NULL){
+        printf("\t%d",root->data);
+        preorderTraversal(root->left);
+        preorderTraversal(root->right);
     }
-    printf("\t%d",root->data);
-    preorderTraversal(root->left);
-    preorderTraversal(root->right);
 }
 
 void postorderTraversal(struct node *root){
-    if(root == NULL){
-        return 0;
+    if(root != NULL){
+        postorderTraversal(root->left);
+        postorderTraversal(root->right);
+        printf("\t%d",root->data); 
     }
-    postorderTraversal(root->left);
-    postorderTraversal(root->right);
-    printf("\t%d",root->data);
 }
 
 int main(){
@@ -88,7 +85,7 @@ int main(){
             case 5:
                 exit(0);
                 break;
-            default():
+            default:
                 printf("\n Invalid choice!");
                 break;
         }
