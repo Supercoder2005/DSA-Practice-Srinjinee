@@ -88,7 +88,7 @@ void insert_at_anyPosition(){
 }
 
 void insert_at_end(){
-    head = temp;
+    temp = head;
     while(temp->next != NULL){
         temp = temp->next;
     }
