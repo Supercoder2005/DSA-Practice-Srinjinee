@@ -45,6 +45,19 @@ void deletion_at_end(){
     free(temp);
 }
 
+void deletion_at_position(){
+    temp = head;
+    int pos,i;
+    printf("\n Enter the specific position from where you want to delete the node:");
+    scanf("%d",&pos);
+    for(i=1;i<pos;i++){
+        temp = temp->next;
+    }
+    temp->next->prev = temp->prev;
+    temp->prev->next = temp->next;
+    free(temp);
+}
+
 void display(){
     temp = head;
     while(temp!= NULL){
@@ -75,6 +88,9 @@ int main(){
                 deletion_at_beginning();
                 break;
             case 4:
+                deletion_at_position();
+                break;
+            case 5:
                 deletion_at_end();
                 break;
             case 6:
