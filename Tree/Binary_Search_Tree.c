@@ -38,6 +38,7 @@ void inorderTraversal(){
 }
 
 int main(){
+    struct node *root = NULL;
     int choice,data;
     while(1){
         printf("\n Binary search Tree Operations-------\n");
