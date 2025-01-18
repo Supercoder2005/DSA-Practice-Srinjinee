@@ -100,7 +100,7 @@ void insert_at_end(){
     printf("\n Enter the element that you want to insert at the end of the list:");
     scanf("%d",&data);
     newnode->data = data;
-    temp->next newnode;
+    temp->next = newnode;
     newnode->prev = temp;
     temp = newnode;
 }
@@ -120,7 +120,8 @@ int main(){
         printf("\n Enter 2 to display the doubly linked list.");
         printf("\n Enter 3 to insert element at the beginning of the list.");
         printf("\n Enter 4 to insert element at the given position of the list.");
-        printf("\n Enter 5 to exit.");
+        printf("\n Enter 5 to insert element at the end of the list.");
+        printf("\n Enter 6 to exit.");
         printf("\n Enter your choice :");
         scanf("%d",&choice);
         switch(choice){
@@ -137,6 +138,9 @@ int main(){
                 insert_at_anyPosition();
                 break;
             case 5:
+                insert_at_end();
+                break;
+            case 6:
                 exit(0);
             default:
                 printf("\n Invalid choice , try again !");
