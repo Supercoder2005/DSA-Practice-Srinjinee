@@ -29,6 +29,13 @@ void create(){
     }
 }
 
+void deletion_at_beginning(){
+    temp = head;
+    head = temp->next;
+    temp->next->prev = NULL;
+    free(temp);
+}
+
 void display(){
     temp = head;
     while(temp!= NULL){
@@ -54,6 +61,9 @@ int main(){
                 break;
             case 2:
                 display();
+                break;
+            case 3:
+                deletion_at_beginning();
                 break;
             case 6:
                 exit(0);
