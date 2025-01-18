@@ -28,6 +28,28 @@ void create(){
     }
 }
 
+void insert_at_beginning(){
+    if(head==NULL){
+        printf("\n Linked list is not created !");
+    }
+    else{
+        struct node *newnode;
+        newnode = (struct node *)malloc(sizeof(struct node));
+        newnode->prev = NULL;
+        newnode->next = NULL;
+        int data;
+        printf("\n Enter the element that you want to insert at beginning:");
+        scanf("%d",&data);
+        newnode->data = data;
+        newnode->next = head;
+        head->prev = newnode;
+        head = newnode;
+    }
+    
+}
+
+
+
 void display(){
     temp = head;
     while(temp != NULL){
@@ -41,8 +63,9 @@ int main(){
     while(1){
         printf("\n Enter 1 to create node.");
         printf("\n Enter 2 to display the doubly linked list.");
-        printf("\n Enter 3 to exit.");
-        printf("\n enter your choice :");
+        printf("\n Enter 3 to insert element at the beginning of the list.");
+        printf("\n Enter 4 to exit.");
+        printf("\n Enter your choice :");
         scanf("%d",&choice);
         switch(choice){
             case 1:
@@ -56,6 +79,9 @@ int main(){
                 display();
                 break;
             case 3:
+                insert_at_beginning();
+                break;
+            case 4:
                 exit(0);
             default:
                 printf("\n Invalid choice , try again !");
