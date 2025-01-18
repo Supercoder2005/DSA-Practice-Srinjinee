@@ -37,7 +37,7 @@ void display(){
 }
 
 int main(){
-    int choice;
+    int choice,n,i;
     while(1){
         printf("\n Enter 1 to create node.");
         printf("\n Enter 2 to display the doubly linked list.");
@@ -46,7 +46,11 @@ int main(){
         scanf("%d",&choice);
         switch(choice){
             case 1:
-                create();
+                printf("\n Enter the size of the doubly linked list :");
+                scanf("%d",&n);
+                for(i=0;i<n;i++){
+                    create();
+                }
                 break;
             case 2:
                 display();
