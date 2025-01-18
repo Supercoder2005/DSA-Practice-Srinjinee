@@ -9,22 +9,26 @@ struct node{
 struct node *head,*temp;
 
 void create(){
-    int data;
+    int data,n,i;
     head = NULL;
-    struct node *newnode;
-    newnode = (struct node *)malloc(sizeof(struct node));
-    printf("\n Enter the data :");
-    scanf("%d",&data);
-    newnode->data = data;
-    newnode->prev = NULL;
-    newnode->next = NULL;
-    if(head == NULL){
-        temp = head = newnode;
-    }
-    else{
-        temp->next = newnode;
-        newnode->prev = temp;
-        temp = newnode;
+    printf("\n Enter the size of the doubly linked list :");
+    scanf("%d",&n);
+    for(i=0;i<n;i++){
+        struct node *newnode;
+        newnode = (struct node *)malloc(sizeof(struct node));
+        printf("\n Enter the data :");
+        scanf("%d",&data);
+        newnode->data = data;
+        newnode->prev = NULL;
+        newnode->next = NULL;
+        if(head == NULL){
+            temp = head = newnode;
+        }
+        else{
+            temp->next = newnode;
+            newnode->prev = temp;
+            temp = newnode;
+        }
     }
 }
 
@@ -55,7 +59,7 @@ void insert_at_anyPosition(){
         int i,pos,data;
         printf("\n Enter the position where you want to insert a new node:");
         scanf("%d",&pos);
-        if(pos<0 || pos>n){
+        if(pos<0){
             printf("\n Invalid position!");
         }
         else if(pos == 1){
@@ -93,7 +97,7 @@ void display(){
 }
 
 int main(){
-    int choice,n,i;
+    int choice,i;
     while(1){
         printf("\n Enter 1 to create node.");
         printf("\n Enter 2 to display the doubly linked list.");
@@ -104,11 +108,7 @@ int main(){
         scanf("%d",&choice);
         switch(choice){
             case 1:
-                printf("\n Enter the size of the doubly linked list :");
-                scanf("%d",&n);
-                for(i=0;i<n;i++){
-                    create();
-                }
+                create();
                 break;
             case 2:
                 display();
