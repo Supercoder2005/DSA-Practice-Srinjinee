@@ -38,6 +38,24 @@ void inorderTraversal(struct node *root){
     inorderTraversal(root->right);
 }
 
+void preorderTraversal(struct node *root){
+    if(root == NULL){
+        return 0;
+    }
+    printf("\t%d",root->data);
+    preorderTraversal(root->left);
+    preorderTraversal(root->right);
+}
+
+void postorderTraversal(struct node *root){
+    if(root == NULL){
+        return 0;
+    }
+    postorderTraversal(root->left);
+    postorderTraversal(root->right);
+    printf("\t%d",root->data);
+}
+
 int main(){
     struct node *root = NULL;
     int choice,data;
@@ -55,6 +73,25 @@ int main(){
                 scanf("%d",&data);
                 root = insertNode(root,data);
                 break;
+            case 2:
+                printf("\n Inorder Traversal -----\n");
+                inorderTraversal(root);
+                break;
+            case 3:
+                printf("\n Preorder Traversal ------\n");
+                preorderTraversal(root);
+                break;
+            case 4:
+                printf("\n Postorder Traversal -----\n");
+                postorderTraversal(root);
+                break;
+            case 5:
+                exit(0);
+                break;
+            default():
+                printf("\n Invalid choice!");
+                break;
         }
     }
+    return 0;
 }
