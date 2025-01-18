@@ -87,6 +87,23 @@ void insert_at_anyPosition(){
     }
 }
 
+void insert_at_end(){
+    head = temp;
+    while(temp->next != NULL){
+        temp = temp->next;
+    }
+    struct node *newnode;
+    newnode = (struct node *)malloc(sizeof(struct node));
+    newnode->prev = NULL;
+    newnode->next = NULL;
+    int data;
+    printf("\n Enter the element that you want to insert at the end of the list:");
+    scanf("%d",&data);
+    newnode->data = data;
+    temp->next newnode;
+    newnode->prev = temp;
+    temp = newnode;
+}
 
 void display(){
     temp = head;
