@@ -62,6 +62,7 @@ int main(){
         printf("\n 2.Inorder Traversal.");
         printf("\n 3.Preorder Traversal.");
         printf("\n 4.Postorder Traversal.");
+        printf("\n 5.Exit.");
         printf("\n Enter your choice:");
         scanf("%d",&choice);
         switch(choice){
