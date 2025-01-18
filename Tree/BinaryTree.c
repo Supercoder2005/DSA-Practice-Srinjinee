@@ -29,6 +29,15 @@ struct node *insertNode(struct node *root,int data){
     return root;
 }
 
+void inorderTraversal(struct node *root){
+    if(root == NULL){
+        return 0;
+    }
+    inordertraversal(root->left);
+    printf("\t%d",root->data);
+    inorderTraversal(root->right);
+}
+
 int main(){
     struct node *root = NULL;
     int choice,data;
