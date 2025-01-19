@@ -12,7 +12,7 @@ void push(){
         int data;
         top ++;
         printf("\n Enter the data:");
-        scanf("%d",data);
+        scanf("%d",&data);
         stack[top] = data;
     }
 }
@@ -28,12 +28,12 @@ void pop(){
 }
 
 int main(){
-    int choice;
-    while(1){
-        printf("\n Stack Operations:\n");
-        printf("\n 1.Push");
-        printf("\n 2.Pop");
-        printf("\n 3.Exit");
+    int choice,w=0;
+    printf("\n Stack Operations:\n");
+    printf("\n 1.Push");
+    printf("\n 2.Pop");
+    printf("\n 3.Exit");
+    while(w==0){
         printf("\n Enter your choice:");
         scanf("%d",&choice);
         switch(choice){
@@ -44,7 +44,8 @@ int main(){
                 pop();
                 break;
             case 3:
-                exit(0);
+                w=1;
+                break;
             default:
                 printf("\n Invalid choice!");
         }
