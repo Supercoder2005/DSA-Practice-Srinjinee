@@ -18,7 +18,8 @@ struct node *createNode(int data){
 
 struct node *insertNode(struct node *root,int data){
     if(root == NULL){
-        createNode(data);
+        root = createNode(data);
+        return root;
     }
     else if(data<root->data){
         root->left = insertNode(root->left,data);
@@ -61,7 +62,7 @@ struct node *deleteNode(struct node *root,int data){
             free(root);
             return temp;
         }
-        else if(root->right = NULL){
+        else if(root->right == NULL){
             struct node *temp = root->left;
             free(root);
             return temp;
