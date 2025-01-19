@@ -1,58 +1,103 @@
 #include<stdio.h>
-#include<ctype.h> // we use this header file to apply the predefined isalphanum() function
+#include<ctype.h> // we use this header file to apply the predefined isalnum() function which checks whether the character is a alphabet or number
 #define Max 100
 
-int stack[Max];
+char stack[Max]; // As i enter character type prefix expressions into the stack
 int top = -1;
 
-void push(){
+void push(char data){
     if(top == Max-1){
         printf("\n Overflow Condition!");
     }
     else{
-        char data;
         top ++;
-        printf("\n Enter the data:");
-        scanf("%c",&data);
         stack[top] = data;
     }
 }
 
-void pop(){
+char pop(){
     if(top == -1){
         printf("\n Underflow Condition!");
     }
     else{
-        printf("\n The popped item is:%c",stack[top]);
-        top--;
+        return(stack[top--]);
+    }
+}
+
+int priority(char x){
+    if(x=='(')
+        return 0;
+    else if(x=='+' || x=='-')
+        return 1;
+    else if(x=='*' || x=='/')
+        return 2;
+    else if(x=='^')
+        return 3;
+}
+
+void display(){
+    if(top == -1){
+        printf("\n Underflow Condition !");
+    }
+    int i;
+    for(i=top;i>-1;i--){
+        printf("\t%c",stack[i]);
     }
 }
 
 int main(){
-    int choice,w=0;
-    printf("\n Stack Operations:\n");
-    printf("\n 1.Push");
-    printf("\n 2.Pop");
-    printf("\n 3.Exit");
-    while(w==0){
-        printf("\n Enter your choice:");
-        scanf("%d",&choice);
-        switch(choice){
-            case 1:
-                push();
-                break;
-            case 2:
-                pop();
-                break;
-            case 3:
-                w=1;
-                break;
-            default:
-                printf("\n Invalid choice!");
+    char infix[50],postfix[50];
+    int i=0;
+    char *symbol; // pointer to point out each character of the infix expression
+    char p;  // variable to store the topmost character after poppping out of the stack 
+    printf("\n Enter the infix expression :");
+    gets(infix);  // instead of scanf when we take string as a input we use gets()
+    symbol = &infix[0];
+
+    while(*symbol != '\0'){
+
+        // checks if the symbol of the infix expression an operand or not 
+        if(isalnum(*symbol)){ 
+            //if input symbol is operand simply write it in the postfix expression
+            postfix[i] = *symbol;
+            i++;
         }
+
+        // checks if the upcoming symbol of the infix expression is '('
+        else if(*symbol == '('){
+            push(*symbol);
+        }
+
+        // checks if the incoming symbol of the infix expression is ')'
+        else if(*symbol == ')'){
+            // then pop out the stack untill the top of the stack is '('
+            while((p=pop()) != '('){
+                postfix[i] = p;
+                i++;
+            }
+        }
+
+        // checks if the incoming symbol is operators then push it when it's priority is greater the top and pop the stack otherwise 
+        else{
+            while(priority(*symbol) <= priority(stack[top])){
+                p = pop();
+                postfix[i] = p;
+                i++;
+            }
+            push(*symbol);
+        }
+    symbol ++;
     }
+
+    while(top != -1){
+        postfix[i]=pop();
+        i++;
+    }
+
+    postfix[i] = '\0';
+    printf("\n The postfix expression is : %s",postfix);
+
     return 0;
 }
-
 
 
