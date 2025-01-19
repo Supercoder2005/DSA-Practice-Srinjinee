@@ -21,10 +21,10 @@ struct node *insertNode(struct node *root,int data){
         createNode(data);
     }
     else if(data<root->data){
-        insertNode(root->left,data);
+        root->left = insertNode(root->left,data);
     }
     else if(data>root->data){
-        insertNode(root->right,data);
+        root->right = insertNode(root->right,data);
     }
     return root;
 }
@@ -55,6 +55,7 @@ int main(){
                 root = insertNode(root,data);
                 break;
             case 2:
+                printf("\n Inorder Traversal ------\n");
                 inorderTraversal(root);
                 break;
             case 4:
