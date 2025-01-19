@@ -37,6 +37,13 @@ void inorderTraversal(struct node *root){
     }
 }
 
+struct node *findMin(struct node *root){
+    while(root->left != NULL){
+        root = root->left;
+    }
+    return root;
+}
+
 int main(){
     struct node *root = NULL;
     int choice,data;
@@ -57,6 +64,11 @@ int main(){
             case 2:
                 printf("\n Inorder Traversal ------\n");
                 inorderTraversal(root);
+                break;
+            case 3:
+                printf("\n Enter the data element to delete:");
+                scanf("%d",&data);
+                root = deleteNode(root,data);
                 break;
             case 4:
                 exit(0);
