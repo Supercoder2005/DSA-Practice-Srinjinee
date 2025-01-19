@@ -89,6 +89,7 @@ int main(){
     symbol ++;
     }
 
+    // condition to check if extra elements are still left inside of the stack then simply pop them out and write inside of the postfix expression
     while(top != -1){
         postfix[i]=pop();
         i++;
