@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<ctype.h> // we use this header file to apply the predefined isalphanum() function
 #define Max 100
 
 int stack[Max];
@@ -9,10 +10,10 @@ void push(){
         printf("\n Overflow Condition!");
     }
     else{
-        int data;
+        char data;
         top ++;
         printf("\n Enter the data:");
-        scanf("%d",&data);
+        scanf("%c",&data);
         stack[top] = data;
     }
 }
@@ -22,7 +23,7 @@ void pop(){
         printf("\n Underflow Condition!");
     }
     else{
-        printf("\n The popped item is:%d",stack[top]);
+        printf("\n The popped item is:%c",stack[top]);
         top--;
     }
 }
