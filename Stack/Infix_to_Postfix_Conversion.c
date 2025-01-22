@@ -2,7 +2,7 @@
 #include<ctype.h> // we use this header file to apply the predefined isalnum() function which checks whether the character is a alphabet or number
 #define Max 100
 
-char stack[Max]; // As i enter character type prefix expressions into the stack
+char stack[Max]; // As i enter character type prefix expressions into the stack , we have to declare a character array
 int top = -1;
 
 void push(char data){
