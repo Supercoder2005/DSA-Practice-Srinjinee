@@ -52,8 +52,8 @@ int main(){
     char p;  // variable to store the topmost character after poppping out of the stack 
     printf("\n Enter the infix expression :");
     gets(infix);  // instead of scanf when we take string as a input we use gets()
+    
     symbol = &infix[0];
-
     while(*symbol != '\0'){
 
         // checks if the symbol of the infix expression an operand or not 
